@@ -48,3 +48,9 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+vim.keymap.set('n', '<C-_>', require('Comment.api').toggle.linewise.current, { noremap = true, silent = true, desc = "Toggle comment line" })
+
+vim.keymap.set('v', '<C-_>', function()
+  require('Comment.api').toggle.linewise(vim.fn.visualmode())
+end, { noremap = true, silent = true, desc = "Toggle comment block" })
